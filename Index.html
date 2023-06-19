@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    ::selection {
+      background: rgb(0,123,255,0.3);
+    }
+    body {
+      background: linear-gradient( 135deg, #00cbe5, #0088a2 );
+      color: #e5e5e5;
+      font-family: "DM Sans",sans-serif;
+    }
+    h1 {
+      font-family: Abel;
+      font-weight: 500;
+      color: white;
+    }
+    form {
+      background-color: #1c1c27;
+      background: linear-gradient(90deg, #2b2b43 50%, #1a1a34 50% );
+      padding: 50px;
+      width: max-content;
+      border-radius: 5px;
+      box-shadow: 0 15px 25px rgb(0 0 0 / 15%);
+    }
+    label {
+      font-family: Poppins;
+      display: block;
+      position: relative;
+      color: #00bcd4;
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+    input, select, textarea {
+      font-size: 18px;
+      position: relative;
+      padding: 3px 0px;
+      width: 300px;
+      background-color: transparent;
+      border: none;
+      margin-bottom: 50px;
+      border-bottom: 1.5px solid #00bcd4;
+      outline: none;
+      color: #e5e5e5;
+      font-weight: 400;
+    }
+    select {
+      display: block;
+      padding: 5px;
+      font-family: poppins;
+      font-size: revert;
+      cursor: pointer;
+      width: auto;
+    }
+    .radio {
+      width: auto;
+    }
+    .tooltip {
+      position: relative;
+      font-family: Poppins;
+      margin: auto;
+      background-color: #1f74e1;
+      color: #ffffff;
+      text-align: center;
+      padding: 0.8em 2em;
+      border-radius: 0.5em;
+      border: none;
+      cursor: pointer;
+    }
+    .tooltip-bottom:before {
+      content: "Click to Reset";
+      font-size: 0.8em;
+      position: absolute;
+      width: 150%;
+      background-color: #000000;
+      padding: 0.8em 1em;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: -4.5em;
+      display: none;
+    }
+    .tooltip-bottom:after {
+      content: "";
+      position: absolute;
+      border-bottom: 1.25em solid black;
+      border-left: 1.25em solid transparent;
+      border-right: 1.25em solid transparent;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: -1.5em;
+      display: none;
+    }
+    .tooltip-bottom1:before {
+      content: "Click to Submit";
+      font-size: 0.8em;
+      position: absolute;
+      width: 150%;
+      background-color: #000000;
+      padding: 0.8em 1em;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: -4.5em;
+      display: none;
+    }
+    .tooltip-bottom1:after {
+      content: "";
+      position: absolute;
+      border-bottom: 1.25em solid black;
+      border-left: 1.25em solid transparent;
+      border-right: 1.25em solid transparent;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: -1.5em;
+      display: none;
+    }
+    .tooltip:hover:before {
+      display: block;
+    }
+    .tooltip:hover:after {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>Please Provide The Following Information</h1>
+    <form autocomplete="off" method="POST" class="form" action="mailto:pushpachaudhary1987@gmail.com" enctype="TEXT/PLAIN">
+      <label for="name">Full name</label>
+      <input type="text" id="name" required="">
+      <label for="name">D.O.B.</label>
+      <input type="text" id="dob" placeholder="dd - mm - yyyy" required="">
+      <label for="email-id">Email</label>
+      <input type="email" id="email-id" placeholder="example@domain.com" required="">
+      <label for="roll-no">Roll no.</label>
+      <input type="number" id="roll" required="">
+      <label for="adm-no">Addmission no.</label>
+      <input type="number" id="adm-no" required="">
+      <label for="adhar">Adhar no.</label>
+      <input type="number" id="adhar-no" required="">
+      <select>
+        <option selected="" class="selected">Choose Your House</option>
+        <option>Madhubani</option>
+        <option>Nalanda</option>
+        <option>Rajgriha</option>
+        <option>Vaishali</option>
+      </select>
+      <label for="gender">Gender</label>
+      <input type="radio" class="radio" name="gender" style="cursor: pointer;" value="male" required="">Male
+      <input type="radio" class="radio" name="gender" style="cursor: pointer;" value="female" required="">Female
+      <label for="comments">Please Write Your Queries Here</label>
+      <textarea name="comments" class="box" rows="4" columns="50" wrap=""></textarea><br>
+      <button class="tooltip tooltip-bottom" type="reset">Reset</button>
+      <button class="tooltip tooltip-bottom1" type="submit" style="margin-left: 20px;">Submit</button>
+    </form>
+  </center>
+  <script>
+    let i = 0;
+    let placeholder = "";
+    const txt = "example@domain.com";
+    const speed = 120;
+
+    function type(){
+      placeholder += txt.charAt(i);
+      document.getElementById("email-id").setAttribute("placeholder",placeholder);
+      i++;
+      setTimeout(type,speed);
+    }
+    type();
+  </script>
+</body>
+</html>
